@@ -1,0 +1,94 @@
+Exercice 1
+
+def fib(n):
+    a, b = 1, 1
+    while b <= n:
+        a, b = b, a + b
+    return b
+nombre = [75,50,100]
+for i in nombre:
+    print(f"le premier nombre de fibonacci superieur a {i} est {fib(i)}.")
+
+
+Exercice 2
+
+
+# question 1: Calcule des précipitations totales pour l’année et les précipitations moyennes mensuelles
+# dans chaque  ville
+BOS = [2.67, 1.00, 1.21, 3.09, 3.43, 4.71, 3.88, 3.08, 4.10, 2.62, 1.01, 5.93]
+MER = [6.83, 3.63, 7.20, 2.68, 2.05, 2.96, 1.04, 0.00, 0.03, 6.71, 8.28, 6.85]
+print("Precipitations totales pour Boston:", sum(BOS))
+print("Precipitations totales pour Seattle:", sum(MER))
+print("Precipitations moyennes mensuelles pour Boston:", round(sum(BOS) / len(BOS),2))
+print("Precipitations moyennes mensuelles pour Seattle:", round(sum(MER) / len(MER),2))
+# questtion 2: Nombre de mois  ou les précipitations ont été supérieures à la moyenne dans
+# chaque ville
+nombre_Bos = nombre_Mer = 0
+for i in BOS:
+    if i > sum(BOS)/len(BOS):
+        nombre_Bos += 1
+print("Nombre de mois ou les précipitations de boston ont été supérieures à la moyenne:",nombre_Bos)
+for i in MER:
+    if i > sum(MER) / len(MER):
+        nombre_Mer += 1
+print("Nombre de mois ou les précipitations de seattle ont été supérieures à la moyenne:", nombre_Mer)
+# question 3: Nombre de mois et au cours de quels mois les précipitations à Boston ont
+# été inférieures à celles à
+precipitation_boston_inferieur_seattle = [i+1 for i in range(len(BOS)) if BOS[i] < MER[i]]
+print("Nombre de mois ou les precipitations de Boston sont inferieurs a celles de Seattle: ",precipitation_boston_inferieur_seattle)
+
+
+Exercice 3
+
+from math import sqrt,log
+import numpy as np
+from scipy.stats import norm
+
+def correlation_test(X, Y, r0):
+    n = len(X)
+    r = np.corrcoef(X, Y)[0, 1]
+    Z = 0.5 * np.log((1 + r) / (1 - r))
+    Z0 = 0.5 * np.log((1 + r0) / (1 - r0))
+    T = (Z - Z0) * np.sqrt(n - 3)
+    p_value = 2 * (1 - norm.cdf(abs(T)))
+    return r, p_value
+X = [1, 2, 3, 4, 5]
+Y = [2, 4, 6, 8, 10]
+r, p0 = correlation_test(X, Y, 0)
+print(f"Corrélation: {r}, p-valeur pour r0=0: {p0}")
+r, p6 = correlation_test(X, Y, 0.6)
+print(f"Corrélation: {r}, p-valeur pour r0=0.6: {p6}")
+
+Exercice 4
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = 2
+a = 0.05
+beta = 1
+generations = 30
+host_pop = [20]
+parasitoid_pop = [2]
+
+for t in range(generations):
+    H_next = host_pop[-1] * np.exp(-a * parasitoid_pop[-1]) * r
+    P_next = host_pop[-1] * (1 - np.exp(-a * parasitoid_pop[-1])) * beta
+    host_pop.append(H_next)
+    parasitoid_pop.append(P_next)
+
+
+time = range(generations + 1)
+plt.plot(time, host_pop, label="Hôtes")
+plt.plot(time, parasitoid_pop, label="Parasitoïdes")
+plt.xlabel("Temps (générations)")
+plt.ylabel("Population")
+plt.legend()
+plt.title("Modèle de Nicholson-Bailey")
+plt.show()
+
+
+class mere:
+     nom_mere=""
+def mere(self):
+    print(self.nom_mere)
