@@ -86,9 +86,3 @@ plt.ylabel("Population")
 plt.legend()
 plt.title("Modèle de Nicholson-Bailey")
 plt.show()
-
-
-class mere:
-     nom_mere=""
-def mere(self):
-    print(self.nom_mere)
