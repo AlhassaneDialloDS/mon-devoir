@@ -1,0 +1,10 @@
+1) En python les variables doivent etre declarees explicitement avec un type avant d'etre utilisees
+	REPONSE: Faux
+2) Une fonction en python peut retourner plusieurs valeurs
+	REPONSE: Vrai
+3.	En programmation orientee objet, l'heritage permet a une classe d'acquerir les proprites et methodes d'une autre class
+    REPONSE: Vrai
+4.	En python on utilise le mot-cle private pour definir des attributs prives dans une classe
+    REPONSE: Faux
+5.	Le module 'csv' en python est utilise pour manipuler des donnees au format JSON
+    REPONSE:Faux
